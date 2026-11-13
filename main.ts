@@ -113,6 +113,17 @@ function drawSun(): void {
   }
 }
 
+function drawClouds(): void {
+  // two fluffy clouds: clusters of 3 overlapping white circles
+  // top-left cloud balances the sun at top-right; top-center cloud adds soft depth
+  fillCircle(90, 80, 14, 255, 255, 255);
+  fillCircle(104, 80, 14, 255, 255, 255);
+  fillCircle(97, 70, 14, 255, 255, 255);
+  fillCircle(300, 60, 14, 255, 255, 255);
+  fillCircle(314, 60, 14, 255, 255, 255);
+  fillCircle(307, 50, 14, 255, 255, 255);
+}
+
 function drawGrass(): void {
   for (let x = 0; x < W; x++) {
     const d = x - 256;
@@ -191,6 +202,12 @@ function drawBalloon(): void {
   fillCircle(199, 242, 5, 255, 210, 200); // highlight
 }
 
+function drawTinyHeart(): void {
+  // tiny red heart floating above the kitten; echoes the robot's balloon
+  // and gives the kitten its own small joyful focal point
+  drawHeart(320, 290, 6, 255, 80, 80);
+}
+
 function drawString(): void {
   drawLine(210, 276, 258, 360, 150, 130, 110);
 }
@@ -206,10 +223,12 @@ function drawBirds(): void {
 function buildPNG(): Buffer {
   drawSky();
   drawSun();
+  drawClouds();
   drawGrass();
   drawRobot();
   drawKitten();
   drawBalloon();
+  drawTinyHeart();
   drawString();
   drawBirds();
 
